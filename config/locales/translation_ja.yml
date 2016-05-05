@@ -2,6 +2,9 @@ ja:
   activerecord:
     models:
       item_category: 商品カテゴリ
+      unit: 単位
     attributes:
       item_category:
+        name: 名前
+      unit:
         name: 名前
