@@ -3,8 +3,18 @@ ja:
     models:
       item_category: 商品カテゴリ
       unit: 単位
+      item: 物品
     attributes:
       item_category:
         name: 名前
       unit:
         name: 名前
+      item:
+        name: 品目
+        category: カテゴリ
+        place: 保管場所
+        status: 状態
+        number: 数
+        unit: 単位
+        description: 補足
+        
