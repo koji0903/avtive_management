@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    models:
+      item_category: 商品カテゴリ
+    attributes:
+      item_category:
+        name: 名前
