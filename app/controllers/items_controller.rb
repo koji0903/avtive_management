@@ -25,17 +25,40 @@ class ItemsController < ApplicationController
   # POST /items.json
   def create
     @item = Item.new(item_params)
-
-    respond_to do |format|
-      if @item.save
+    begin
+      respond_to do |format|
+        @item.save!
         format.html { redirect_to @item, notice: 'Item was successfully created.' }
         format.json { render :show, status: :created, location: @item }
-      else
-        format.html { render :new }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
       end
+    rescue 
+        # 入荷処理
+        respond_to do |format|
+          if Item.find_by(name: @item.name )
+            target = Item.find_by(name: @item.name)
+            target.number += item_params[:number].to_f
+            if target.save
+              format.html { redirect_to @item, notice: 'Item was successfully created.' }
+              format.json { render :show, status: :created, location: @item }
+            else
+              format.html { render :new }
+              format.json { render json: @item.errors, status: :unprocessable_entity }
+            end
+          end
+        end
     end
+
+=begin
+        if @item.save
+          format.html { redirect_to @item, notice: 'Item was successfully created.' }
+          format.json { render :show, status: :created, location: @item }
+        else
+          format.html { render :new }
+          format.json { render json: @item.errors, status: :unprocessable_entity }
+        end
+=end
   end
+
 
   # PATCH/PUT /items/1
   # PATCH/PUT /items/1.json

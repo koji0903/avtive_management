@@ -10,4 +10,5 @@ class Item < ActiveRecord::Base
       scope: [:name]
     }
 
+  validates :number, numericality: { only_integer: false, greater_than_or_equal_to: 0 }
 end
