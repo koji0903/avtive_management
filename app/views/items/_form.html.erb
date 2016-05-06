@@ -1,22 +1,50 @@
 <%= simple_form_for @item, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :name %>
+  <% if false %>
   <%= error_span(@item[:name]) %>
+  <% end %>
+
+  <%= f.association :item_categories, as: :check_boxes, label: "カテゴリー" %>
+
   <%= f.input :place %>
+  <% if false %>
   <%= error_span(@item[:place]) %>
+  <% end %>
+
   <%= f.input :status %>
+  <% if false %>
   <%= error_span(@item[:status]) %>
+  <% end %>
+
   <%= f.input :number %>
+  <% if false %>
   <%= error_span(@item[:number]) %>
-  <%= f.input :unit_id %>
+  <% end %>
+
+  <%= f.association :unit %>
+  <% if false %>
   <%= error_span(@item[:unit_id]) %>
+  <% end %>
+
   <%= f.input :description %>
+  <% if false %>
   <%= error_span(@item[:description]) %>
+  <% end %>
+
   <%= f.input :image %>
+  <% if false %>
   <%= error_span(@item[:image]) %>
-  <%= f.input :updated_date %>
+  <% end %>
+
+  <%= f.input :updated_date, as: :datetime_picker  %>
+  <% if false %>
   <%= error_span(@item[:updated_date]) %>
+  <% end %>
+
   <%= f.input :updated_person_id %>
+  <% if false %>
   <%= error_span(@item[:updated_person_id]) %>
+  <% end %>
 
   <%= f.button :submit, :class => 'btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
