@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :items
+  resources :items do
+    member do
+      get 'delivery'
+    end
+  end
   resources :units
   resources :item_categories
   root 'static_pages#home'

@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:show, :edit, :delivery, :update, :destroy]
 
   # GET /items
   # GET /items.json
@@ -19,6 +19,9 @@ class ItemsController < ApplicationController
 
   # GET /items/1/edit
   def edit
+  end
+  
+  def delivery
   end
 
   # POST /items
