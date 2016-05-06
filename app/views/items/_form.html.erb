@@ -1,19 +1,24 @@
-<%= simple_form_for(@item) do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for @item, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= error_span(@item[:name]) %>
+  <%= f.input :place %>
+  <%= error_span(@item[:place]) %>
+  <%= f.input :status %>
+  <%= error_span(@item[:status]) %>
+  <%= f.input :number %>
+  <%= error_span(@item[:number]) %>
+  <%= f.input :unit_id %>
+  <%= error_span(@item[:unit_id]) %>
+  <%= f.input :description %>
+  <%= error_span(@item[:description]) %>
+  <%= f.input :image %>
+  <%= error_span(@item[:image]) %>
+  <%= f.input :updated_date %>
+  <%= error_span(@item[:updated_date]) %>
+  <%= f.input :updated_person_id %>
+  <%= error_span(@item[:updated_person_id]) %>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :place %>
-    <%= f.input :status %>
-    <%= f.input :number %>
-    <%= f.association :unit %>
-    <%= f.input :description %>
-    <%= f.input :image %>
-    <%= f.input :updated_date %>
-    <%= f.association :updated_person %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                items_path, :class => 'btn btn-default' %>
 <% end %>
